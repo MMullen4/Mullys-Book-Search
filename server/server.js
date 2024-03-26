@@ -15,6 +15,7 @@ const server = new ApolloServer({
   resolvers,
 });
 
+// Start the Apollo server with the expressMiddleware function to handle GraphQL requests and responses.
 const startApolloServer = async () => {
   await server.start();
 
@@ -33,7 +34,7 @@ const startApolloServer = async () => {
     });
   }
 
-  db.once('open', () => {
+  db.once('open', () => { // Start the API server
     app.listen(PORT, () => {
       console.log(`API server running on port ${PORT}!`);
       console.log(`Use GraphQL at http://localhost:${PORT}/graphql`);

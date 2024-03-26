@@ -36,11 +36,11 @@ const typeDefs = `
   }
 
   type Mutation {
-    login(email:String!, password: String!): Auth
+    login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     saveBook(bookData: BookInput!): User
     removeBook(bookId: ID!): User
   }
 `;
-
+// note ! means that the field is required
 module.exports = typeDefs;
