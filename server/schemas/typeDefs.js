@@ -42,5 +42,6 @@ const typeDefs = `
     removeBook(bookId: ID!): User
   }
 `;
+// note: bookData will have all the fields that are required to create a book from BookInput
 // note ! means that the field is required
 module.exports = typeDefs;
