@@ -3,7 +3,7 @@ import decode from 'jwt-decode';
 
 // create a new class to instantiate for a user
 class AuthService {
-  // get user data
+  // get user data from JSON web token by decoding it
   getProfile() {
     return decode(this.getToken());
   }
@@ -12,7 +12,7 @@ class AuthService {
   loggedIn() {
     // Checks if there is a saved token and it's still valid
     const token = this.getToken();
-    return !!token && !this.isTokenExpired(token); // handwaiving here
+    return !!token && !this.isTokenExpired(token); // if no token or token is expired, return false
   }
 
   // check if token is expired
