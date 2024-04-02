@@ -30,7 +30,6 @@ const typeDefs = `
     title: String!
   }
 
-
   type Query {
     me: User
   }
