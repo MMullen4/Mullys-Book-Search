@@ -7,14 +7,13 @@ import Auth from '../utils/auth';
 
 const SignupForm = () => {
   const [addUser, { error }] = useMutation(ADD_USER);
-
   // set initial form state
   const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '' });
   // set state for form validation
   const [validated] = useState(false);
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
-  useEffect(() => {
+  useEffect(() => { // if there is an error, show the alert
     if (error) {
       setShowAlert(true);
     } else {
@@ -38,9 +37,7 @@ const SignupForm = () => {
       event.stopPropagation();
     }
 
-    try {
-      console.log(userFormData);
-
+    try { // use the addUser mutation to create a new user in the database.
       const { data } = await addUser({
         variables: { ...userFormData }
       });
